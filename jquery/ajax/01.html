@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>load</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+		</script>
+		<script>
+			$(document).ready(function() {
+				$("button.load").click(function() {
+					$("#div1").load("assets/test.txt");
+				});
+				$("button.get").click(function() {
+					$.get(url, function(data, status) {});
+				});
+
+				$("button.post").click(function() {
+					$.post("assets/test.php", "assets/test.txt",
+						function(data, status) {
+							alert("数据: \n" + data + "\n状态: " + status);
+						});
+				});
+				$("button.s").click(function() {
+					$.getScript("assets/test.js");
+				});
+				$("button.j").click(function() {
+					$.getJSON("assets/json.js", function(result) {
+						$.each(result, function(i, field) {
+							$("div").append(field + " ");
+						});
+					});
+				});
+
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<div id="div1">
+			<h2>使用 jQuery AJAX 修改文本内容</h2></div>
+		<button class="load">load</button>
+		<button class="get">get</button>
+		<button class="post">post</button>
+		<button class="s">getScript</button>
+		<button class="j">getJSON</button>
+
+	</body>
+
+</html>

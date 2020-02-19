@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+		</script>
+		<script>
+			$(document).ready(function() {
+				$("#flip").click(function() {
+					$("#panel").slideDown("slow");
+				});
+				$("#up").click(function() {
+					$("#panel").slideUp("slow");
+				});
+				$("#toggle").click(function() {
+					$("#panel").slideToggle("slow");
+				});
+			});
+		</script>
+
+		<style type="text/css">
+			#panel {
+				display: none;
+				padding: 50px;
+				text-align: center;
+				background-color: #e5eecc;
+				border: solid 1px #c3c3c3;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+
+		<button id="flip">点我滑下面板</button>
+		<button id="up">点我拉起面板</button>
+		<button id="toggle">点我切换面板</button>
+		<div id="panel">Hello world!</div>
+
+	</body>
+
+</html>

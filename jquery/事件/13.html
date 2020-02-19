@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>mouseout和mouseleave的区别</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+		</script>
+		<script>
+			x = 0;
+			y = 0;
+			$(document).ready(function() {
+				$("div.over").mouseout(function() {
+					$(".over span").text(x += 1);
+				});
+				$("div.enter").mouseleave(function() {
+					$(".enter span").text(y += 1);
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+
+		<p>mouseout 事件在鼠标离开选取的元素及其子元素时触发。</p>
+		<p>mouseleave 事件只在鼠标离开选取的的元素时触发。 </p>
+
+		<div class="over" style="background-color:lightgray;padding:20px;width:250px;float:left">
+			<h3 style="background-color:white;">Mouseout 事件触发: <span></span></h3>
+		</div>
+
+		<div class="enter" style="background-color:lightgray;padding:20px;width:250px;float:right">
+			<h3 style="background-color:white;">Mouseleave 事件触发: <span></span></h3>
+		</div>
+
+	</body>
+
+</html>
