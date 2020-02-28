@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>动画效果</title>
+		<script src="jquery.js"></script>
+		<style>
+
+		</style>
+		<script>
+			function ta() {
+				$('div.ta-box').animate({
+					width: '300px',
+					height: '100px',
+					marginLeft: '500px',
+					opacity: '0.2'
+
+				}, 'slow')
+			}
+
+			function qa() {
+				$('div.qa-box').animate({
+					width: '300px'
+				}, 'slow').animate({
+					height: '100px'
+				}, 'slow').animate({
+					marginLeft: '500px'
+				}, 'slow').animate({
+					opacity: '0.2'
+				}, 'slow')
+			}
+			$(document).ready(function() {
+				$('button.ta').click(function() {
+					ta();
+				})
+				$('button.qa').click(function() {
+					qa();
+				})
+			})
+		</script>
+	</head>
+
+	<body style="margin-left: 100px;">
+		<div class="together">
+			<h1>并发</h1>
+			<button class="ta" style="margin-bottom: 20px;">开始并发动画</button>
+			<div class="ta-box" style="width:200px;height:200px;background: #000;">
+			</div>
+		</div>
+		<div class="queue">
+			<h1>排队</h1>
+			<button class="qa" style="margin-bottom: 20px;">开始排队动画</button>
+			<div class="qa-box" style="width:200px;height:200px;background: #f06;">
+			</div>
+
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>事件冒泡</title>
+
+		<script src="jquery.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#container').on('click', function() {
+					alert('container 被点击了!')
+				})
+				$('p.a').on('click', function(event) {
+					event.stopPropagation()
+					alert('<p></p>被点击了')
+				})
+				$('span').on('click', function() {
+					alert('<span></span>被点击了')
+				})
+
+				x = 0;
+				y = 0;
+				$(document).ready(function() {
+					$("div.over").mouseout(function() {
+						$(".over span").text(x += 1);
+					});
+					$("div.enter").mouseleave(function() {
+						$(".enter span").text(y += 1);
+					});
+				});
+
+				$("ul").on("click", "li", function(event) {
+					$('li').css('background','#fff')
+					var target = $(event.target);
+					target.css("background", "#f06");
+				})
+			})
+		</script>
+		<style>
+			ul {
+				display: flex;
+				list-style: none;
+				margin-bottom: 100px;
+			}
+			ul li {
+				flex: 1;
+				margin-right: 15px;
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>事件冒泡</h1>
+		<div id="container" style="width:200px;height:200px;background: #ccc;margin:0 0 100px 100px;">container
+			<p class="a" style="width:100px;height:100px;background: #1B6D85;">p
+				<span style="display: inline-block;background: #f06;margin-top:30px;">span</span>
+			</p>
+		</div>
+
+		<div class="over" style="background-color:lightgray;padding:20px;width:250px;margin-bottom: 100px;margin-left: 100px;">
+			<h3 style="background-color:white;">Mouseout 事件触发: <span></span></h3>
+		</div>
+
+		<div class="enter" style="background-color:lightgray;padding:20px;width:250px;margin-bottom: 100px;margin-left: 100px;">
+			<h3 style="background-color:white;">Mouseleave 事件触发: <span></span></h3>
+		</div>
+		<h1>事件委托</h1>
+
+		<ul style="padding: 50px;background: #ccc;">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul </body>
+
+</html>
